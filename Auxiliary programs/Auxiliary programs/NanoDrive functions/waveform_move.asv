@@ -1,0 +1,17 @@
+initialize_handle;
+
+
+%movement waveform
+startpos = 0;
+endpos = 20;
+interval = 5;
+waveform = startpos:interval:endpos; 
+
+axis = 2;
+rate = 5; %rate to write data in ms
+nreads = 10;
+error = calllib('Madlib','MCL_LoadWaveFormN',axis,nreads,rate,1,waveform,handle);
+
+cleanup(handle,0);
+
+
