@@ -1,9 +1,9 @@
-classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
+classdef SRconfocal_v5_2_exported < matlab.apps.AppBase
 
     % Properties that correspond to app components
     properties (Access = public)
         UIFigure                        matlab.ui.Figure
-        Superresolutionconfocalcontrolprogramv51Label  matlab.ui.control.Label
+        Superresolutionconfocalcontrolprogramv52Label  matlab.ui.control.Label
         TabGroup                        matlab.ui.container.TabGroup
         MainTab                         matlab.ui.container.Tab
         LaserpowerPanel                 matlab.ui.container.Panel
@@ -119,13 +119,13 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         LoadButton_nanodrive            matlab.ui.control.Button
         PosumLabel                      matlab.ui.control.Label
         ScanrangeumLabel                matlab.ui.control.Label
-        x15ButtonNano                   matlab.ui.control.Button
+        x0075ButtonNano                 matlab.ui.control.Button
+        x025ButtonNano                  matlab.ui.control.Button
         x5ButtonNano                    matlab.ui.control.Button
         x10ButtonNano                   matlab.ui.control.Button
         x25ButtonNano                   matlab.ui.control.Button
         x50ButtonNano                   matlab.ui.control.Button
         x100ButtonNano                  matlab.ui.control.Button
-        x200ButtonNano                  matlab.ui.control.Button
         Fix_xNano                       matlab.ui.control.CheckBox
         Fix_yNano                       matlab.ui.control.CheckBox
         Fix_zNano                       matlab.ui.control.CheckBox
@@ -271,7 +271,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         MinpeakheightVLabel_24          matlab.ui.control.Label
         MicroSerialZ                    matlab.ui.control.NumericEditField
         MinpeakheightVLabel_25          matlab.ui.control.Label
-        MoveTimeMult                    matlab.ui.control.NumericEditField
         MaxLabel                        matlab.ui.control.Label
         MinLabel                        matlab.ui.control.Label
         Xmax                            matlab.ui.control.NumericEditField
@@ -295,7 +294,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         Zmovedistlim                    matlab.ui.control.NumericEditField
         regmovevel                      matlab.ui.control.NumericEditField
         MicroDrivePrecision             matlab.ui.control.NumericEditField
-        ZeroNanodriveaxisbeforemovingglobalpositionLabel  matlab.ui.control.Label
+        ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel  matlab.ui.control.Label
         ZeroNanodriveX                  matlab.ui.control.CheckBox
         ZeroNanodriveY                  matlab.ui.control.CheckBox
         ZeroNanodriveZ                  matlab.ui.control.CheckBox
@@ -311,7 +310,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         MovelargerdistancesinincrementsLabel  matlab.ui.control.Label
         zigzagscan                      matlab.ui.control.CheckBox
         SafetylimitsmmLabel             matlab.ui.control.Label
-        MinpeakheightVLabel_2           matlab.ui.control.Label
         DAQPanel                        matlab.ui.container.Panel
         LaserpowerPDmonitorPanel        matlab.ui.container.Panel
         VoltagepowerconversioncoeffsLabel  matlab.ui.control.Label
@@ -379,6 +377,10 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         startupLoadNano                 matlab.ui.control.CheckBox
         startupLoadMicro                matlab.ui.control.CheckBox
         NanoDrivesettingsTab            matlab.ui.container.Tab
+        NanoDriveRange                  matlab.ui.control.NumericEditField
+        MinpeakheightVLabel_27          matlab.ui.control.Label
+        BatchModeSwitch                 matlab.ui.control.Switch
+        DbatchscanningmodeSwitchLabel   matlab.ui.control.Label
         BatchModeSettingsPanel          matlab.ui.container.Panel
         InactiveLabelBatch              matlab.ui.control.Label
         MinpeakheightVLabel_23          matlab.ui.control.Label
@@ -391,8 +393,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         WfmWriteRate                    matlab.ui.control.NumericEditField
         WaitFinishRead                  matlab.ui.control.NumericEditField
         MinpeakheightVLabel_19          matlab.ui.control.Label
-        BatchModeSwitch                 matlab.ui.control.Switch
-        DbatchscanningmodeSwitchLabel   matlab.ui.control.Label
         NanoDrivePosMonitorPeriod       matlab.ui.control.NumericEditField
         MinpeakheightVLabel_18          matlab.ui.control.Label
         NanoDrivePosMonitor             matlab.ui.control.CheckBox
@@ -400,32 +400,15 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         zigzagscanNano                  matlab.ui.control.CheckBox
         NanoSkipifSame                  matlab.ui.control.CheckBox
         NanoPositionError               matlab.ui.container.Panel
-        ZLabel_Ori_2                    matlab.ui.control.Label
-        YLabel_Ori_2                    matlab.ui.control.Label
-        XLabel_Ori_2                    matlab.ui.control.Label
+        percentlabel_2                  matlab.ui.control.Label
+        AxistoscanDropDown              matlab.ui.control.DropDown
+        AxistoscanDropDownLabel         matlab.ui.control.Label
         AbsPosCorrSwitch                matlab.ui.control.CheckBox
-        NanoDriveCorrXint               matlab.ui.control.NumericEditField
-        NanoDriveCorrYint               matlab.ui.control.NumericEditField
-        NanoDriveCorrZint               matlab.ui.control.NumericEditField
-        NanoDriveCorrXX                 matlab.ui.control.NumericEditField
-        NanoDriveCorrYX                 matlab.ui.control.NumericEditField
-        NanoDriveCorrZX                 matlab.ui.control.NumericEditField
-        NanoDriveCorrXY                 matlab.ui.control.NumericEditField
-        NanoDriveCorrYY                 matlab.ui.control.NumericEditField
-        NanoDriveCorrZY                 matlab.ui.control.NumericEditField
-        NanoDriveCorrXZ                 matlab.ui.control.NumericEditField
-        NanoDriveCorrYZ                 matlab.ui.control.NumericEditField
-        NanoDriveCorrZZ                 matlab.ui.control.NumericEditField
-        NanoDriveCorrLabel              matlab.ui.control.Label
         MeasPosErrStart                 matlab.ui.control.Button
         MeasPosErrStop                  matlab.ui.control.Button
         PosErrCoeffUpdate               matlab.ui.control.Button
         ElapsedtimesLabel_2             matlab.ui.control.Label
-        SavePosErrCoeffs                matlab.ui.control.Button
-        LoadNanoDriveCorr               matlab.ui.control.Button
         PosErrScanIncr                  matlab.ui.control.NumericEditField
-        MeasPosErrXZ                    matlab.ui.control.CheckBox
-        MeasPosErrY                     matlab.ui.control.CheckBox
         NanoDrivePrecision              matlab.ui.control.NumericEditField
         MinpeakheightVLabel_11          matlab.ui.control.Label
         ZLabel_Ori                      matlab.ui.control.Label
@@ -437,20 +420,24 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         NanoDriveRealPos                matlab.ui.control.Label
         StagesettlingtimeaftermovementButtonGroup  matlab.ui.container.ButtonGroup
         InactiveLabelNormal             matlab.ui.control.Label
+        MinpeakheightVLabel_26          matlab.ui.control.Label
+        NanoMinPosErrThreshold          matlab.ui.control.NumericEditField
+        FixedsettlingtimeButton         matlab.ui.control.RadioButton
+        PoserrPercentButton             matlab.ui.control.RadioButton
+        PoserrAbsButton                 matlab.ui.control.RadioButton
+        NanoPosErrThreshold             matlab.ui.control.NumericEditField
+        NanoPosErrPercThreshold         matlab.ui.control.NumericEditField
+        percentlabel                    matlab.ui.control.Label
         NanoSaveParams                  matlab.ui.control.CheckBox
         NanoSaveFilePath                matlab.ui.control.TextArea
         FilepathLabel_3                 matlab.ui.control.Label
         MinpeakheightVLabel_13          matlab.ui.control.Label
         MinpeakheightVLabel_12          matlab.ui.control.Label
-        unitlabel_nm                    matlab.ui.control.Label
         NanoFixedMoveTime               matlab.ui.control.NumericEditField
-        NanoPosErrThreshold             matlab.ui.control.NumericEditField
         NanoMinSettleTime               matlab.ui.control.NumericEditField
         NanoMoveTimeout                 matlab.ui.control.NumericEditField
         NanoDispPosError                matlab.ui.control.CheckBox
         unitlabel_ms                    matlab.ui.control.Label
-        PositionerrorthresholdButton    matlab.ui.control.RadioButton
-        FixedsettlingtimeButton         matlab.ui.control.RadioButton
         MonitorlivestagepositionPanel   matlab.ui.container.Panel
         SamplerateLabel_26              matlab.ui.control.Label
         SamplerateLabel_25              matlab.ui.control.Label
@@ -489,11 +476,9 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         MonitorNanoStageXPlot           matlab.ui.control.UIAxes
         MonitorNanoStageYPlot           matlab.ui.control.UIAxes
         MonitorNanoStageZPlot           matlab.ui.control.UIAxes
-        HelpTab                         matlab.ui.container.Tab
-        MFF101helpLabel                 matlab.ui.control.Label
+        ReadMeTab                       matlab.ui.container.Tab
+        MFF101ReadMeLabel               matlab.ui.control.Label
         MicroDrivePrecisionLabel_2      matlab.ui.control.Label
-        explainglobalpos                matlab.ui.control.Label
-        MicroDrivesettingshelpLabel     matlab.ui.control.Label
     end
 
     %% Changelog
@@ -530,7 +515,13 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
     % Modified timed tasks to overcome 8-hour MATLAB timer limits. Allow
     % saving and reloading all app settings. Several efficiency and
     % cosmetic improvements.
-    % v5.0 added new integrated DAQ + nanostage movement
+    % v5.0 added new integrated DAQ + nanostage movement (batch scanning)
+    % v5.1 updated functions for superresolution confocal (two microdrive
+    % controllers, some code organization. Got rid of savecurrentpos
+    % v5.2 enabled fractional percentage threshold in nanodrive position
+    % precision goal, rewrote position correction for NanoLP100 stages used
+    % in SR confocal (interpolation instead of linear fit), troubleshooted
+    % batch scanning, more code organization
 
     %% Variables for use in code
     properties (Access = private)
@@ -557,7 +548,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         MicroXPosCur
         MicroYPosCur
         MicroZPosCur
-        microhandle % MCL NanoDrive lib handle
         MCLmicroset % MCL MicroDrive settings (mainly for internal use, not front panel settings)
 
         %NanoDrive properties
@@ -654,10 +644,10 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
             logmsg(app,sprintf('Updated scan limits with scan center (%.2f,%.2f,%.2f).',x,y,z));
 
-            %Generate low and high scan limits, bounded within -100,100
+            %Generate low and high scan limits, bounded within -50,50
             %which is the range of the Nanodrive stage
-            minbound = -100;
-            maxbound = 100;
+            minbound = -app.MCLnanoset.range/2;
+            maxbound = app.MCLnanoset.range/2;
             boundsx = genboundedscanlimits(x,deltax,minbound,maxbound);
             boundsy = genboundedscanlimits(y,deltay,minbound,maxbound);
             boundsz = genboundedscanlimits(z,deltaz,minbound,maxbound);
@@ -903,10 +893,12 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                     % movement by sending a command to the stage
                     if outofrange == 0
                         if axis == 1 || axis == 2
-                            err = calllib('MicroDrive', 'MCL_MDMove', axis, app.MCLmicroset.maxVelocity, new_move_length, app.MCLmicroset.handlexy); % command MicroDriveXY to execute movement
+                            handle = app.MCLmicroset.handlexy;
                         elseif axis == 3
-                            err = calllib('MicroDrive', 'MCL_MDMove', 1, app.MCLmicroset.maxVelocity, new_move_length, app.MCLmicroset.handlez); % command MicroDriveZ to execute movement
+                            handle = app.MCLmicroset.handlez;
+                            axis = 1; %always use axis = 1 for single-axis MMPZ stage
                         end
+                        err = calllib('MicroDrive', 'MCL_MDMove', axis, app.MCLmicroset.maxVelocity, new_move_length, handle); % command MicroDriveZ to execute movement
 
                         % Check if movement command was executed successfully
                         if err ~= 0
@@ -924,12 +916,13 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                             logmsg(app,message);
 
                             %Wait a sufficient time before next move
-                            app.MCLmicroset.milliseconds = abs(round(1000*move_length/app.MCLmicroset.maxVelocity)*app.MoveTimeMult.Value); %pause to ensure sufficient moving time
-                            if axis == 1 || axis == 2
-                                calllib('MicroDrive', 'MCL_DeviceAttached', app.MCLmicroset.milliseconds,app.MCLmicroset.handlexy);
-                            elseif axis == 3
-                                calllib('MicroDrive', 'MCL_DeviceAttached', app.MCLmicroset.milliseconds,app.MCLmicroset.handlez);
+                            isMoving = libpointer('int32Ptr',1);
+                            % tic
+                            while isMoving.Value ~= 0
+                                 calllib('MicroDrive', 'MCL_MicroDriveMoveStatus',isMoving,handle);
+                                 % disp(isMoving.Value);
                             end
+                            % toc
                             incrcheckmovecount(app); % check if enough movements have occurred to require saving of position
                         end
                     else
@@ -952,7 +945,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             switch axis
                 case 'X'
                     app.MicroXPosCur = roundtomicroprec(app,app.MicroXPosCur); % round to max precision
-                    if abs(app.NanoPosX.Value) > 0.05 && app.ZeroNanodriveX.Value == 1
+                    if abs(app.NanoPosX.Value) > 0.005 && app.ZeroNanodriveX.Value == 1
                         movenano(app,'X',0); % move NanoDrive into zero position first before moving MicroDrive, if setting is turned on
                     end
                     move_length = coord - app.MicroXPosCur;
@@ -962,7 +955,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                     end
                 case 'Y'
                     app.MicroYPosCur = roundtomicroprec(app,app.MicroYPosCur); % round to max precision
-                    if abs(app.NanoPosY.Value) > 0.05 && app.ZeroNanodriveY.Value == 1
+                    if abs(app.NanoPosY.Value) > 0.005 && app.ZeroNanodriveY.Value == 1
                         movenano(app,'Y',0); % move NanoDrive into zero position first before moving MicroDrive, if setting is turned on
                     end
                     move_length = coord - app.MicroYPosCur;
@@ -972,7 +965,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                     end
                 case 'Z'
                     app.MicroZPosCur = roundtomicroprec(app,app.MicroZPosCur); % round to max precision
-                    if abs(app.NanoPosZ.Value) > 0.05 && app.ZeroNanodriveZ.Value == 1
+                    if abs(app.NanoPosZ.Value) > 0.005 && app.ZeroNanodriveZ.Value == 1
                         movenano(app,'Z',0); % move NanoDrive into zero position first before moving MicroDrive, if setting is turned on
                     end
                     move_length = coord - app.MicroZPosCur;
@@ -1115,12 +1108,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             readnano(app,'X',nreads);
             readnano(app,'Y',nreads);
             readnano(app,'Z',nreads);
-
-            %load position correction coefficients into memory and panel
-            %indicators
-            app.MCLnanoset.nanoposcorr = importdata('confocalnanocorr.csv');
-            loadnanoposcorr(app); %load values into panel indicators in Nanodrive settings tab
- 
         end
 
         function movenano(app, labaxis, labnewpos) % nanopositioner can be asked to move to absolute position. Assumes lab axes
@@ -1144,19 +1131,27 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                 [axis, dir] = mapaxes(app,labaxis,app.axismapvecnano);
 
                 %ensure labnewpos is within -50, 50
-                if labnewpos > 50 || labnewpos < -50
+                if labnewpos > app.MCLnanoset.range/2 || labnewpos < -app.MCLnanoset.range/2
                     logmsg(app,'Target position out of range.');
                     return;
                 end
-                absnewpos = abs(labnewpos + dir*50); %translate new position back to absolute coordinates ranging from 0 to 100 um
+                absnewpos = abs(labnewpos + dir*app.MCLnanoset.range/2); %translate new position back to absolute coordinates ranging from 0 to 100 um
             end
 
             curpos = getcurpos(app,labaxis); %Get current position
             deltacurpos = abs(curpos-labnewpos)*1000; %Difference between current position and target position
-            % assignin('base','deltacurposlogic',deltacurpos < app.NanoPosErrThreshold.Value && app.contscan == 1);
             
             %% Process coordinates and send move command
-            if deltacurpos < app.NanoPosErrThreshold.Value && app.contscan == 1 && app.NanoSkipifSame.Value == 1
+            
+            %set position error threshold, if applicable
+            if app.PoserrPercentButton.Value == 1 %position error should be below a percentage threshold of the movement distance
+                poserrthreshold = app.NanoPosErrPercThreshold.Value/100 * deltacurpos/1000;
+                poserrthreshold = max(poserrthreshold,app.NanoMinPosErrThreshold.Value/1000); % if percentage threshold is below minimum
+            else %position error should be below an absolute threshold (in nm). Also applies if using a fixed settling time
+                poserrthreshold = app.NanoPosErrThreshold.Value/1000;
+            end
+
+            if deltacurpos < poserrthreshold && app.contscan == 1 && app.NanoSkipifSame.Value == 1
                 %Don't do anything if 1) previous position is within pos
                 %error threshold already, 2) we are in the middle of a
                 %scan, 3) the NanoSkipifSame option is activated
@@ -1165,20 +1160,11 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
             %Otherwise, execute movement command as usual
             if app.AbsPosCorrSwitch.Value == 1 % apply absolute position correction to compensate for discrepancy between commanded and actual settled stage position
-                if (axis == 1)
-                    offset = app.NanoDriveCorrXint.Value + app.NanoDriveCorrXX.Value*absnewpos + app.NanoDriveCorrXY.Value*app.NanoDriveRealY.Value + app.NanoDriveCorrXZ.Value*app.NanoDriveRealZ.Value;
-                elseif (axis == 2)
-                    offset = app.NanoDriveCorrYint.Value + app.NanoDriveCorrYX.Value*app.NanoDriveRealX.Value + app.NanoDriveCorrYY.Value*absnewpos + app.NanoDriveCorrYZ.Value*app.NanoDriveRealZ.Value;
-                elseif (axis == 3)
-                    offset = app.NanoDriveCorrZint.Value + app.NanoDriveCorrZX.Value*app.NanoDriveRealX.Value + app.NanoDriveCorrZY.Value*app.NanoDriveRealY.Value + app.NanoDriveCorrZZ.Value*absnewpos;
-                end
-                goalnewpos = absnewpos - offset/1000; %subtract out offset, which is in nm. This becomes the goalnewpos
-
+                goalnewpos = applyposcorr(app,axis,absnewpos);
             else
                 goalnewpos = absnewpos; %Otherwise, the goal position is the same as the dialed-in position
             end
-
-            goalnewpos = forcebound(goalnewpos,0,200); %ensure goalnewpos is within 0,200 range
+            goalnewpos = forcebound(goalnewpos,0,app.MCLnanoset.range); %ensure goalnewpos is within 0,100 range
 
             err = calllib('Madlib', 'MCL_SingleWriteN', goalnewpos, axis, app.nanohandle);
             if (err ~= 0)
@@ -1195,7 +1181,8 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             if app.FixedsettlingtimeButton.Value == 1 %If fixed settling time, simply wait a set amount
                 calllib('Madlib', 'MCL_DeviceAttached', app.NanoFixedMoveTime.Value, app.nanohandle);
                 elapsedtime = app.NanoFixedMoveTime.Value/1000;
-            elseif app.PositionerrorthresholdButton.Value == 1 %otherwise, keep reading the position until it fulfills position error criteria or the timeout is reached
+            elseif app.PoserrAbsButton.Value == 1 || app.PoserrPercentButton.Value == 1
+                %otherwise, keep reading the position until it fulfills position error criteria or the timeout is reached
                 avereadtime = 0.5; %average time per read is 0.5 ms
                 nreadstotal = round(app.NanoMoveTimeout.Value/avereadtime*1.2); %initiate vector for storing reads. Size is determined by the timeout
                 nave = app.NanoNreads.Value; %take the last nave readings for a running average
@@ -1207,7 +1194,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                 posstd = posave;
 
                 % keep waiting until both average and standard deviation of last X reads are small enough
-                while elapsedtime < app.NanoMoveTimeout.Value/1000 && (abs(posave-absnewpos) > app.NanoPosErrThreshold.Value/1000 || posstd > app.NanoPosErrThreshold.Value/1000)
+                while elapsedtime < app.NanoMoveTimeout.Value/1000 && (abs(posave-absnewpos) > poserrthreshold || posstd > poserrthreshold)
                     posvec(i) = calllib('Madlib', 'MCL_SingleReadN', axis, app.nanohandle);
                     elapsedtime = toc(timer); %elapsed time since movement began in seconds
                     %Calculate running average
@@ -1238,11 +1225,11 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                 app.MCLnanoset.poserror = poserror;
 
                 if app.NanoDispPosError.Value == 1
-                    logmsg(app,sprintf('Average read Nanodrive position is %f um. Target position was %f um. Position error is %f nm. Movement time is %f s.',newval,absnewpos,poserror,elapsedtime));
+                    logmsg(app,sprintf('Average read Nanodrive position is %f um. Target position was %f um. Position error is %f nm. Movement time is %f s.',newval,labnewpos,poserror,elapsedtime));
                     logmsg(app,sprintf('Position difference is %f um.',deltapos));
                 end
 
-                if app.NanoSaveParams.Value == 1 && app.PositionerrorthresholdButton.Value == 1 %log movement parameters into file for diagnosis
+                if app.NanoSaveParams.Value == 1 && app.PoserrAbsButton.Value == 1 %log movement parameters into file for diagnosis
                     % truncate zeros from posvec
                     nonZeroIndices = find(posvec);
                     lastNonZeroIndex = nonZeroIndices(end);
@@ -1257,7 +1244,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
         function labcoords = convtolabcoords(app,dir,newpos_read) %function to convert Nanostage coords from 0,100 to -50,50 coordinate system
             % assignin('base','dir',dir);
-            labcoords = forcebound(dir*(newpos_read - 50),-50,50); %remember to convert back to -100,100 coordinate system.
+            labcoords = forcebound(dir*(newpos_read - app.MCLnanoset.range/2),-app.MCLnanoset.range/2,app.MCLnanoset.range/2); %remember to convert back to -50,50 coordinate system.
             labcoords = roundtonanoprec(app,labcoords);% round to NanoDrive precision
         end
 
@@ -1327,7 +1314,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
             if (labaxis == 'X')
                 oldval = app.Xnano;
-                %Convert newly read position to -100,100 cordinate
+                %Convert newly read position to -50,50 cordinate
                 %system and update variables
                 app.Xnano = convtolabcoords(app,dir,pos_read);
                 if app.MCLnanoset.enableupdateposindic == 1
@@ -1338,7 +1325,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                 incrcheckmovecount(app); % check if enough movements have occurred to require saving of position
             elseif (labaxis == 'Y')
                 oldval = app.Ynano;
-                %Convert newly read position to -100,100 cordinate
+                %Convert newly read position to -50,50 cordinate
                 %system and update variables
                 app.Ynano = convtolabcoords(app,dir,pos_read);
                 if app.MCLnanoset.enableupdateposindic == 1
@@ -1349,7 +1336,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                 incrcheckmovecount(app); % check if enough movements have occurred to require saving of position
             elseif (labaxis == 'Z')
                 oldval = app.Znano;
-                %Convert newly read position to -100,100 cordinate
+                %Convert newly read position to -50,50 cordinate
                 %system and update variables
                 app.Znano = convtolabcoords(app,dir,pos_read);
                 if app.MCLnanoset.enableupdateposindic == 1
@@ -1385,145 +1372,63 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         end
 
         %% Nanodrive position correction functions
-        function saveposcorcoeff(app)
-            app.MCLnanoset.nanoposcorr
+       function goalnewpos = applyposcorr(app,axis,absnewpos)
+            % Recalculate goal position based on nanodrive correction
+            if (axis == 1)
+                offset = app.MCLnanoset.nanoposcorr.x(absnewpos);
+            elseif (axis == 2)
+                offset = app.MCLnanoset.nanoposcorr.y(absnewpos);
+            elseif (axis == 3)
+                offset = app.MCLnanoset.nanoposcorr.z(absnewpos);
+            end
+            goalnewpos = absnewpos - offset/1000; %subtract out offset, which is in nm. This becomes the goalnewpos
         end
 
-        function loadnanoposcorr(app) %load nanodrive position correction coefficients from memory into fron panel indicators in the NanoDrive settings tab
-            % useful after modifying app.MCLnanoset.nanoposcorr. This is
-            % because the position correction uses coefficients in the front
-            % panel indicator, not app.MCLnanoset.nanoposcorr.
-            app.NanoDriveCorrXint.Value = app.MCLnanoset.nanoposcorr(1,1);
-            app.NanoDriveCorrXX.Value = app.MCLnanoset.nanoposcorr(1,2);
-            app.NanoDriveCorrXY.Value = app.MCLnanoset.nanoposcorr(1,3);
-            app.NanoDriveCorrXZ.Value = app.MCLnanoset.nanoposcorr(1,4);
+        function measposerr1d(app,axis) %scan 1 stage axis and measure mismatch between commanded position and actual final position
+            app.contscan = 1;
+            posvec = 0:app.PosErrScanIncr.Value:app.MCLnanoset.range;
+            poserrvec = zeros(1,length(posvec));
+            movenano(app,axis,posvec(1));
+            pause(2);
+            startscanprogress(app,length(posvec));
+            for i=1:length(posvec)
+                if app.contscan == 1 %stop scan if Stop button is pressed
+                    movenano(app,axis,posvec(i));
+                    poserrvec(i) = app.MCLnanoset.poserror;
+                    updatescanprogress(app);
+                    drawnow;
+                end
+            end
+            movenano(app,axis,posvec(1));
+            poserrfunc = @(posq) interp1(posvec, poserrvec, posq, 'spline'); % create interpolating function
+            if axis == 1
+                app.MCLnanoset.nanoposcorr.testx = poserrfunc;
+                axisname = "X";
+            elseif axis == 2
+                app.MCLnanoset.nanoposcorr.testy = poserrfunc;
+                axisname = "Y";
+            elseif axis == 3
+                app.MCLnanoset.nanoposcorr.testz = poserrfunc;
+                axisname = "Z";
+            end
 
-            app.NanoDriveCorrYint.Value = app.MCLnanoset.nanoposcorr(2,1);
-            app.NanoDriveCorrYX.Value = app.MCLnanoset.nanoposcorr(2,2);
-            app.NanoDriveCorrYY.Value = app.MCLnanoset.nanoposcorr(2,3);
-            app.NanoDriveCorrYZ.Value = app.MCLnanoset.nanoposcorr(2,4);
+            posq = linspace(min(posvec), max(posvec),length(posvec)*10);
+            poserrq = poserrfunc(posq);
 
-            app.NanoDriveCorrZint.Value = app.MCLnanoset.nanoposcorr(3,1);
-            app.NanoDriveCorrZX.Value = app.MCLnanoset.nanoposcorr(3,2);
-            app.NanoDriveCorrZY.Value = app.MCLnanoset.nanoposcorr(3,3);
-            app.NanoDriveCorrZZ.Value = app.MCLnanoset.nanoposcorr(3,4);
+            figure;
+            plot(posvec, poserrvec, 'o', 'DisplayName', 'Measured'); % Original points
+            hold on;
+            plot(posq, poserrq, '-', 'DisplayName', 'Interpolated'); % Interpolated curve
+            xlabel('Goal position (um)');
+            ylabel('Position error (nm)');
+            legend;
+            title(sprintf('%s position error',axisname));
         end
-
-        function lm = fitplot1dscan(app,X,fX,axis) %fit and plot results from measuring abs position error
-            % axis should be set to 2 normally for Y.
-            % Fit a linear model
-            lm = fitlm(X, fX);
-
-            % Extract the coefficients
-            a = lm.Coefficients.Estimate(1); % Intercept
-            b = lm.Coefficients.Estimate(2); % Slope
-            app.MCLnanoset.nanoposcorr(axis,:) = [a,0,b,0]; % update appnanoposcorr for relevant axis
-
-            % Generate points for the fitted line
-
-            X_line = linspace(min(X), max(X), 100);
-            f_line = a + b * X_line;
-
-            %plot data
-            popupFig = uifigure('Name', 'Data View', 'Position', [100, 100, 600, 300]); % Increased height to accommodate text
-            % Create axes for the plot
-            ax = uiaxes('Parent', popupFig, 'Position', [20, 50, 560, 250]); % Adjust position to make room for text
-            hold(ax, 'on');  % Specify the axes for hold
-
-            % Set labels and title on the correct axes
-            axesvector = ['X' 'Y' 'Z'];
-            axisname = axesvector(axis);
-
-            xlabel(ax, 'Absolute position (um)');
-            ylabel(ax, sprintf('%s position error (nm)',axisname));
-            title(ax, sprintf('%s position error vs. absolute position',axisname));
-
-            % Assuming X, fX, X_line, f_line, a, and b are defined somewhere in your code
-            % Generate some data to plot
-            scatter(ax, X, fX, 'filled');
-            plot(ax, X_line, f_line, '-r');
-
-            % Display the equation on the plot
-            txtAx = uiaxes('Parent', popupFig, 'Position', [20, -40, 560, 150], 'Color', 'none');  % Create a new axes for text
-            txtAx.XColor = 'none';  % Hide X axis
-            txtAx.YColor = 'none';  % Hide Y axis
-            text(txtAx, 0.01, 0.5, sprintf('f =  %.2f + %.2f%s', a,b, axisname), 'FontSize', 12, 'Units', 'normalized', 'VerticalAlignment', 'middle');
-
-            % Add legend
-            legend(ax, 'Data points', 'Fitted line');
-
-            hold(ax, 'off');  % Release the hold
-        end
-
-        function model = fitplot2dscan(app,X,Z,fXZ,axis) %fit and plot results from measuring abs position error
-            % Generate a grid for X and Z
-            [X_grid, Z_grid] = meshgrid(X, Z);
-
-            % Reshape X_grid, Z_grid, and fXZ into vectors
-            X_vector = reshape(X_grid, [], 1);
-            Z_vector = reshape(Z_grid, [], 1);
-            fXZ_vector = reshape(fXZ, [], 1);
-
-            % Create a table of the independent variables and the dependent variable
-            tbl = table(X_vector, Z_vector, fXZ_vector, 'VariableNames', {'X', 'Z', 'fXZ'});
-
-            % Fit the linear model
-            model = fitlm(tbl, 'fXZ ~ X + Z');
-
-            % Extract coefficients
-            a = model.Coefficients.Estimate(1); %Intercept
-            b = model.Coefficients.Estimate(2); %Slope X
-            c = model.Coefficients.Estimate(3); %Slope Z
-            app.MCLnanoset.nanoposcorr(axis,:) = [a,b,0,c]; % update appnanoposcorr for relevant axis
-
-            % Prepare a fine grid for a smooth surface
-            [X_grid_fine, Z_grid_fine] = meshgrid(linspace(min(X), max(X), 100), linspace(min(Z), max(Z), 100));
-            tbl_fine = table(reshape(X_grid_fine, [], 1), reshape(Z_grid_fine, [], 1), 'VariableNames', {'X', 'Z'});
-
-            % Predict over the fine grid
-            fXZ_fine_predicted = predict(model, tbl_fine);
-            fXZ_fine_predicted = reshape(fXZ_fine_predicted, size(X_grid_fine));
-
-            %plot data
-            popupFig = uifigure('Name', 'Data View', 'Position', [100, 100, 600, 300]); % Increased height to accommodate text
-
-            % Create axes for the plot
-            ax = uiaxes('Parent', popupFig, 'Position', [20, 50, 560, 250]); % Adjust position to make room for text
-            hold(ax, 'on');  % Specify the axes for hold
-            grid(ax, 'on');
-
-            % Set labels and title on the correct axes
-            axesvector = ['X' 'Y' 'Z'];
-            axisname = axesvector(axis);
-
-            xlabel(ax, 'Absolute position (um)');
-            ylabel(ax, sprintf('%s position error (nm)',axisname));
-            title(ax, sprintf('%s position error vs. absolute position',axisname));
-
-            % Scatter plot for the original data
-            scatter3(ax,X_vector, Z_vector, fXZ_vector, 10, 'o', 'MarkerEdgeColor', 'k', 'MarkerFaceColor', 'r'); % Reduced marker size to 10
-
-            % Surface plot for the fitted model
-            mesh(ax,X_grid_fine, Z_grid_fine, fXZ_fine_predicted, 'FaceAlpha', 0.5);
-            xlabel(ax,'X');
-            ylabel(ax,'Z');
-            zlabel(ax,'f(X, Z)');
-            title(ax,sprintf('%s position error vs. X and Z position',axisname));
-            legend(ax, 'Data points', 'Fitted surface');
-            view(ax,30,40); % Adjusts the 3D view angle
-
-            % Display the equation on the plot
-            txtAx = uiaxes('Parent', popupFig, 'Position', [20, -40, 560, 150], 'Color', 'none');  % Create a new axes for text
-            txtAx.XColor = 'none';  % Hide X axis
-            txtAx.YColor = 'none';  % Hide Y axis
-            text(txtAx, 0.01, 0.5, sprintf('f = %.2f + %.2fX + %.2fZ', a, b,c), 'FontSize', 12, 'Units', 'normalized', 'VerticalAlignment', 'middle');
-
-            hold(ax, 'off');  % Release the hold
-        end
+        
 
         %% Nanodrive batch scan functions
         function scanresvec = scan1Row(app,scanposvec2,axisname1,axisno2,dir2,scanposvec1,i)
-            scanposvec2abs = abs(scanposvec2 + dir2*100); %translate new lab position back to absolute coordinates ranging from 0 to 200 um required by the nanodrive
+            scanposvec2abs = abs(scanposvec2 + dir2*app.MCLnanoset.range/2); %translate new lab position back to absolute coordinates ranging from 0 to 100 um required by the nanodrive
             scanposvec2mat = posvector2matrix(scanposvec2abs,app.MaxCoordsPerBatch.Value); % convert long 1D vec into a 2D matrix of shorter 1D vec. If there is a remainder, pad the last row with extreme values (9999)
             scanresvec = zeros(1,length(scanposvec2abs)); %vector to scan batch scanning results
             scanrescounter = 1; %track index to write in scanresvec
@@ -1533,7 +1438,11 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                 if app.contscan == 1
                     movenano(app,axisname1,scanposvec1(i)); %move into position on first coordinate
                     scanbatchvec = stripextremevalues(scanposvec2mat(k,:)); %take a row of 2D matrix, strip any extreme values
-                    movenano(app,axisno2,scanbatchvec(1)); %
+
+                    if app.AbsPosCorrSwitch.Value == 1 %apply nanoposition correction if selected
+                        scanbatchvec = applyposcorr(app,axisno2,scanbatchvec); 
+                    end
+                    movenano(app,axisno2,scanbatchvec(1)); 
                     if length(scanbatchvec) ~= app.dq.npulses %reset and modify npulses if scanbatchvec is different
                         %This is needed if the the length of scanposvec2 is not divisable by MaxCoordsPerBatch, such
                         % that there will be remainder batch at the end
@@ -1563,7 +1472,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                     %from the DAQ. Now fetch the resulting
                     %values
                     [app.dq,sig] = app.nidaqpool.procReadEdgeCountingBatch(app.dq); %read values
-                    disp(sig);
                     scanresvec(:,scanrescounter:scanrescounter+length(scanbatchvec)-1) = sig; %insert values into scanresvec
                     scanrescounter = scanrescounter + length(scanbatchvec); %update scanrescounter
                     calllib('Madlib','MCL_IssBindClockToAxis',app.NanoDriveClk.Value,4,axisno2,app.nanohandle); %unbind axis
@@ -1953,6 +1861,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.MCLnanoset.stream = 0; %streaming status (for monitoring position)
             app.MCLnanoset.enableupdateposindic = 1; %enable updating of nanostage position indicators (disabled when continuously streaming the position)
             app.MCLnanoset.prevNanoNreads = 10; %used to temporarily store value of front panel indicators
+            app.MCLnanoset.range = app.NanoDriveRange.Value; % range of NanoDrive movement. For SR confocal should be 100 um
             if app.startupLoadNano.Value == 1 %startup NanoDrive
                 mclLoadLibnano(app);
                 NanoDrivePosMonitorValueChanged(app, []); %initiate nanodrive position monitoring if it's set to "on"
@@ -2041,11 +1950,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             readmicro(app);
         end
 
-        % Callback function
-        function StopMicroButtonPushed(app, event)
-            app.contscan = 0;
-        end
-
         % Value changed function: StepSizemm
         function StepSizemmValueChanged(app, event)
             value = app.StepSizemm.Value;
@@ -2120,9 +2024,22 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
         % Button pushed function: ResetEncoders
         function ResetEncodersPushed(app, event)
-            message = 'Successfully recalibrate the origin for micro stages. Current position: (0,0,0)';
-
-            logmsg(app,message);
+            % Open a confirmation dialog
+            choice = questdlg('This will reset the encoders such that the current MicroDrive position is (0,0,0). Are you sure you want to make this change?', ...
+                'Confirm Change', ...
+                'Yes', 'No', 'No');
+            % Handle the user's choice
+            switch choice
+                case 'Yes'
+                    % If the user confirms, execute the code to make the change
+                    status = uint16(0);
+                    calllib('MicroDrive', 'MCL_MDResetEncoders',status,app.MCLmicroset.handlexy);
+                    calllib('MicroDrive', 'MCL_MDResetEncoders',status,app.MCLmicroset.handlez);
+                    logmsg(app,'Encoders have been reset.');
+                    ReadMicroPosButtonPushed(app,[]);
+                case 'No'
+                    % If the user cancels, do nothing
+            end
         end
 
         % Button pushed function: MovetooriginButton
@@ -2348,12 +2265,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             end
         end
 
-        % Button pushed function: x200ButtonNano
-        function x200ButtonNanoPushed(app, event)
-            bounds = 200;
-            updatenanoscanparams(app,bounds,bounds,bounds);
-        end
-
         % Button pushed function: x100ButtonNano
         function x100ButtonNanoPushed(app, event)
             bounds = 100;
@@ -2384,8 +2295,14 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             updatenanoscanparams(app,bounds,bounds,bounds);
         end
 
-        % Button pushed function: x15ButtonNano
-        function x15ButtonNanoPushed(app, event)
+        % Button pushed function: x025ButtonNano
+        function x025ButtonNanoPushed(app, event)
+            bounds = 2.5;
+            updatenanoscanparams(app,bounds,bounds,bounds);
+        end
+
+        % Button pushed function: x0075ButtonNano
+        function x0075ButtonNanoPushed(app, event)
             bounds = 0.75;
             updatenanoscanparams(app,bounds,bounds,bounds);
         end
@@ -2548,10 +2465,10 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                         app.nidaqpool.clearAllTasks(app.dq); %clear all tasks
                         return
                     end
+                    movenano(app,axisname1,scanposvec1(i)); %move into position on first coordinate
                     if app.BatchModeSwitch.Value == "Off" %regular point-by-point scanning mode
                         for j = 1:length(scanposvec2)
                             if app.contscan == 1 % contscan can be turned to 0 with the STOP button
-                                movenano(app,axisname1,scanposvec1(i)); %move into position on first coordinate
                                 movenano(app,axisname2,scanposvec2(j)); %move into position on second coordinate
                                 updatescanprogress(app); % update scan progress bar
                                 [app.dq,scanresmat(i,j)] = app.nidaqpool.readProcData(app.dq); %read from DAQ
@@ -3124,7 +3041,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
                 % Save previous program parameters and adjust to new
                 % parameters optimized for pos error measurement
-                prevPositionerrorthresholdButton = app.PositionerrorthresholdButton.Value;
+                prevPositionerrorthresholdButton = app.PoserrAbsButton.Value;
                 prevNanoFixedSettleTime = app.NanoFixedMoveTime.Value;
                 prevAbsPosCorrSwitch = app.AbsPosCorrSwitch.Value;
                 prevNanoSkip = app.NanoSkipifSame.Value;
@@ -3134,75 +3051,22 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
                 app.AbsPosCorrSwitch.Value = 0; %deactivate movement correction when trying to measure for the correction!
                 app.NanoSkipifSame.Value = 0; %deactivate skipping move position command if position is already close enough
 
-                % Measure Y
-                if app.MeasPosErrY.Value == 1
-                    app.contscan = 1;
-                    axis = 3;
-                    posvecy = 0:app.PosErrScanIncr.Value:100;
-                    poserrvecy = zeros(1,length(posvecy));
-                    movenano(app,axis,posvecy(1));
-                    pause(2);
-                    startscanprogress(app,length(posvecy));
-                    for i=1:length(posvecy)
-                        if app.contscan == 1 %stop scan if Stop button is pressed
-                            movenano(app,axis,posvecy(i));
-                            poserrvecy(i) = app.MCLnanoset.poserror;
-                            updatescanprogress(app);
-                        end
-                    end
-                    movenano(app,axis,posvecy(1));
-                    fitplot1dscan(app,posvecy,poserrvecy,2); % fit data and generate plots
-                    app.MCLnanoset.posvecy = posvecy;
-                    app.MCLnanoset.poserrvecy = poserrvecy;
-                    % assignin('base','posvecy',posvecy);
-                    % assignin('base','poserrvecy',poserrvecy);
+                if app.AxistoscanDropDown.Value == "X"
+                    measposerr1d(app,1);
+                elseif app.AxistoscanDropDown.Value == "Y"
+                    measposerr1d(app,2);
+                elseif app.AxistoscanDropDown.Value == "Z"
+                    measposerr1d(app,3);
+                elseif app.AxistoscanDropDown.Value == "All"
+                    measposerr1d(app,1);
+                    measposerr1d(app,2);
+                    measposerr1d(app,3);
                 end
 
-                % Measure X,Z
-                if app.MeasPosErrXZ.Value == 1
-                    app.contscan = 1;
-                    posvec = 0:app.PosErrScanIncr.Value:100;
-                    poserrmatX = zeros(length(posvec),length(posvec));
-                    poserrmatZ = poserrmatX;
-                    movenano(app,1,posvec(1));
-                    movenano(app,3,posvec(1));
-                    pause(2);
-                    startscanprogress(app,length(posvec)^2);
-                    for i = 1:length(posvec)
-                        for j = 1:length(posvec)
-                            if app.contscan == 1
-                                movenano(app,1,posvec(j));
-                                poserrmatX(i,j) = app.MCLnanoset.poserror;
-                                movenano(app,3,posvec(i));
-                                poserrmatZ(i,j) = app.MCLnanoset.poserror;
-                                updatescanprogress(app);
-                            end
-                        end
-                    end
-                    movenano(app,1,posvec(1));
-                    movenano(app,3,posvec(1));
-
-                    % Reject points at X = 0, Z = 0 (esp. the former) as
-                    % these may be affected by insufficient settling time
-                    % due to long jumps
-                    poserrmatX(:,1) = [];
-                    poserrmatX(1,:) = [];
-                    poserrmatZ(1,:) = [];
-                    poserrmatZ(:,1) = [];
-                    posvec(1)=[];
-
-                    %perform fitting
-                    fitplot2dscan(app,posvec,posvec,poserrmatX,1); %fit and plot X pos error
-                    fitplot2dscan(app,posvec,posvec,poserrmatZ,3); %fit and plot Z pos error
-                    app.MCLnanoset.posvecxz = posvec;
-                    app.MCLnanoset.poserrmatX = poserrmatX;
-                    app.MCLnanoset.poserrmatZ = poserrmatZ;
-
-                    assign values to console for further analysis
-                    assignin('base','posvecxz',posvec);
-                    assignin('base','poserrmatX',poserrmatX);
-                    assignin('base','poserrmatZ',poserrmatZ);
-                end
+                app.PoserrAbsButton.Value = prevPositionerrorthresholdButton;
+                app.NanoFixedMoveTime.Value = prevNanoFixedSettleTime;
+                app.AbsPosCorrSwitch.Value = prevAbsPosCorrSwitch;
+                app.NanoSkipifSame.Value = prevNanoSkip;
             end
         end
 
@@ -3213,21 +3077,35 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
         % Button pushed function: PosErrCoeffUpdate
         function PosErrCoeffUpdateButtonPushed(app, event)
-            loadnanoposcorr(app); %copy app.MCLnanoset.nanoposcorr into front panel indicators, which will actually be used for position correction
-        end
+            % update position error functions from test to actual (so that
+            % it is used in movenano. Save them to confocal settings file
 
-        % Button pushed function: SavePosErrCoeffs
-        function SavePosErrCoeffsButtonPushed(app, event)
-            app.MCLnanoset.nanoposcorr = [app.NanoDriveCorrXint.Value,app.NanoDriveCorrXX.Value,app.NanoDriveCorrXY.Value,app.NanoDriveCorrXZ.Value;
-                app.NanoDriveCorrYint.Value,app.NanoDriveCorrYX.Value,app.NanoDriveCorrYY.Value,app.NanoDriveCorrYZ.Value;
-                app.NanoDriveCorrZint.Value,app.NanoDriveCorrZX.Value,app.NanoDriveCorrZY.Value,app.NanoDriveCorrZZ.Value];
-            writematrix(app.MCLnanoset.nanoposcorr,fullfile(app.appDepPath,'confocalnanocorr.csv'));
-        end
+            settingsfilepath = app.SettingsFilePath.Value{1};
+            if app.AxistoscanDropDown.Value == "X"
+                app.MCLnanoset.nanoposcorr.x = app.MCLnanoset.nanoposcorr.testx;
+                xposerrfunc = app.MCLnanoset.nanoposcorr.x;
+                save(settingsfilepath,'xposerrfunc','-append');
+            elseif app.AxistoscanDropDown.Value == "Y"
+                app.MCLnanoset.nanoposcorr.y = app.MCLnanoset.nanoposcorr.testy;
+                yposerrfunc = app.MCLnanoset.nanoposcorr.y;
+                save(settingsfilepath,'yposerrfunc','-append');
+            elseif app.AxistoscanDropDown.Value == "Z"
+                app.MCLnanoset.nanoposcorr.z = app.MCLnanoset.nanoposcorr.testz;
+                zposerrfunc = app.MCLnanoset.nanoposcorr.z;
+                save(settingsfilepath,'zposerrfunc','-append');
+            elseif app.AxistoscanDropDown.Value == "All"
+                app.MCLnanoset.nanoposcorr.x = app.MCLnanoset.nanoposcorr.testx;
+                app.MCLnanoset.nanoposcorr.y = app.MCLnanoset.nanoposcorr.testy;
+                app.MCLnanoset.nanoposcorr.z = app.MCLnanoset.nanoposcorr.testz;
 
-        % Button pushed function: LoadNanoDriveCorr
-        function LoadNanoDriveCorrButtonPushed(app, event)
-            app.MCLnanoset.nanoposcorr = importdata(fullfile(app.appDepPath,'confocalnanocorr.csv'));
-            loadnanoposcorr(app); %load values into panel indicators in Nanodrive settings tab
+                xposerrfunc = app.MCLnanoset.nanoposcorr.x;
+                save(settingsfilepath,'xposerrfunc','-append');
+                yposerrfunc = app.MCLnanoset.nanoposcorr.y;
+                save(settingsfilepath,'yposerrfunc','-append');
+                zposerrfunc = app.MCLnanoset.nanoposcorr.z;
+                save(settingsfilepath,'zposerrfunc','-append');
+            end
+            logmsg(app,sprintf("Updated position error function for %s and saved it to %s.",app.AxistoscanDropDown.Value,settingsfilepath));
         end
 
         % Button pushed function: MonitorStagePosStartStop
@@ -3580,7 +3458,20 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
 
         % Button pushed function: SaveSettings
         function SaveSettingsButtonPushed(app, event)
-            app.slspool.saveState(app,app.SettingsFilePath.Value{1}); % save all app settings
+            settingsfilepath = app.SettingsFilePath.Value{1};
+            app.slspool.saveState(app,settingsfilepath); % save all app settings
+
+            % also save the functions for nanodrive position correction
+            try
+                xposerrfunc = app.MCLnanoset.nanoposcorr.x;
+                yposerrfunc = app.MCLnanoset.nanoposcorr.y;
+                zposerrfunc = app.MCLnanoset.nanoposcorr.z;
+                save(settingsfilepath,'xposerrfunc','-append');
+                save(settingsfilepath,'yposerrfunc','-append');
+                save(settingsfilepath,'zposerrfunc','-append');
+            catch
+            end
+
             app.movecount = 0;
             logmsg(app,sprintf('Saved all app settings to %s.',app.SettingsFilePath.Value{1}));
         end
@@ -3589,8 +3480,15 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
         function ReloadSettingsButtonPushed(app, event)
             % settingsfilepath = fullfile(app.appDepPath,'DMconfocal_settings.mat');
             % app.slspool.loadState(app,settingsfilepath); %load all app settings
-            app.slspool.loadState(app,app.SettingsFilePath.Value{1}); %load all app settings
-            logmsg(app,sprintf('Loaded all app settings from %s.',app.SettingsFilePath.Value{1}));
+            settingsfilepath = app.SettingsFilePath.Value{1};
+            app.slspool.loadState(app,settingsfilepath); %load all app settings
+            
+            %load nanodrive position error functions
+            app.MCLnanoset.nanoposcorr.x = load(settingsfilepath,'xposerrfunc').xposerrfunc;
+            app.MCLnanoset.nanoposcorr.y = load(settingsfilepath,'yposerrfunc').yposerrfunc;
+            app.MCLnanoset.nanoposcorr.z = load(settingsfilepath,'zposerrfunc').zposerrfunc;
+
+            logmsg(app,sprintf('Loaded all app settings from %s.',settingsfilepath));
         end
     end
 
@@ -4231,54 +4129,54 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.Fix_xNano.Text = '';
             app.Fix_xNano.Position = [401 306 15 21];
 
-            % Create x200ButtonNano
-            app.x200ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
-            app.x200ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x200ButtonNanoPushed, true);
-            app.x200ButtonNano.BackgroundColor = [0.902 0.902 0.902];
-            app.x200ButtonNano.Position = [13 305 81 22];
-            app.x200ButtonNano.Text = '200 x 200';
-
             % Create x100ButtonNano
             app.x100ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
             app.x100ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x100ButtonNanoPushed, true);
             app.x100ButtonNano.BackgroundColor = [0.902 0.902 0.902];
-            app.x100ButtonNano.Position = [13 277 81 22];
+            app.x100ButtonNano.Position = [13 302 81 22];
             app.x100ButtonNano.Text = '100 x 100';
 
             % Create x50ButtonNano
             app.x50ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
             app.x50ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x50ButtonNanoPushed, true);
             app.x50ButtonNano.BackgroundColor = [0.902 0.902 0.902];
-            app.x50ButtonNano.Position = [13 249 81 22];
+            app.x50ButtonNano.Position = [13 274 81 22];
             app.x50ButtonNano.Text = '50 x 50';
 
             % Create x25ButtonNano
             app.x25ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
             app.x25ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x25ButtonNanoPushed, true);
             app.x25ButtonNano.BackgroundColor = [0.902 0.902 0.902];
-            app.x25ButtonNano.Position = [13 220 81 23];
+            app.x25ButtonNano.Position = [13 245 81 23];
             app.x25ButtonNano.Text = '25 x 25';
 
             % Create x10ButtonNano
             app.x10ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
             app.x10ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x10ButtonNanoPushed, true);
             app.x10ButtonNano.BackgroundColor = [0.902 0.902 0.902];
-            app.x10ButtonNano.Position = [13 191 81 23];
+            app.x10ButtonNano.Position = [13 216 81 23];
             app.x10ButtonNano.Text = '10 x 10';
 
             % Create x5ButtonNano
             app.x5ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
             app.x5ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x5ButtonNanoPushed, true);
             app.x5ButtonNano.BackgroundColor = [0.902 0.902 0.902];
-            app.x5ButtonNano.Position = [13 163 81 22];
+            app.x5ButtonNano.Position = [13 188 81 22];
             app.x5ButtonNano.Text = '5 x 5';
 
-            % Create x15ButtonNano
-            app.x15ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
-            app.x15ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x15ButtonNanoPushed, true);
-            app.x15ButtonNano.BackgroundColor = [0.902 0.902 0.902];
-            app.x15ButtonNano.Position = [13 134 81 23];
-            app.x15ButtonNano.Text = '0.75 x 0.75';
+            % Create x025ButtonNano
+            app.x025ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
+            app.x025ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x025ButtonNanoPushed, true);
+            app.x025ButtonNano.BackgroundColor = [0.902 0.902 0.902];
+            app.x025ButtonNano.Position = [14 158 81 23];
+            app.x025ButtonNano.Text = '2.5 x 2.5';
+
+            % Create x0075ButtonNano
+            app.x0075ButtonNano = uibutton(app.NanoDrivescanningPanel, 'push');
+            app.x0075ButtonNano.ButtonPushedFcn = createCallbackFcn(app, @x0075ButtonNanoPushed, true);
+            app.x0075ButtonNano.BackgroundColor = [0.902 0.902 0.902];
+            app.x0075ButtonNano.Position = [13 128 81 23];
+            app.x0075ButtonNano.Text = '0.75 x 0.75';
 
             % Create ScanrangeumLabel
             app.ScanrangeumLabel = uilabel(app.NanoDrivescanningPanel);
@@ -4629,7 +4527,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             % Create Savefilepath
             app.Savefilepath = uitextarea(app.SavesettingsPanel);
             app.Savefilepath.Position = [79 80 212 36];
-            app.Savefilepath.Value = {'G:\Shared drives\PHYS - Walsworth Group\Experiment folders\Dark Matter\Confocal\Data'};
+            app.Savefilepath.Value = {'.\Confocal\Data'};
 
             % Create FilenameLabel
             app.FilenameLabel = uilabel(app.SavesettingsPanel);
@@ -4912,7 +4810,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.GlobalpositionmmLabel.WordWrap = 'on';
             app.GlobalpositionmmLabel.FontSize = 18;
             app.GlobalpositionmmLabel.FontWeight = 'bold';
-            app.GlobalpositionmmLabel.Position = [215 23 102 66];
+            app.GlobalpositionmmLabel.Position = [223 24 102 66];
             app.GlobalpositionmmLabel.Text = {'Global position'; '(mm)'};
 
             % Create GlobalZPosmm
@@ -4920,38 +4818,38 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.GlobalZPosmm.Limits = [-50 50];
             app.GlobalZPosmm.ValueDisplayFormat = '%.4f';
             app.GlobalZPosmm.HorizontalAlignment = 'center';
-            app.GlobalZPosmm.Position = [325 15 57 23];
+            app.GlobalZPosmm.Position = [333 16 57 23];
 
             % Create GlobalYPosmm
             app.GlobalYPosmm = uieditfield(app.GeneralPanel, 'numeric');
             app.GlobalYPosmm.Limits = [-50 50];
             app.GlobalYPosmm.ValueDisplayFormat = '%.4f';
             app.GlobalYPosmm.HorizontalAlignment = 'center';
-            app.GlobalYPosmm.Position = [325 43 57 22];
+            app.GlobalYPosmm.Position = [333 44 57 22];
 
             % Create GlobalXPosmm
             app.GlobalXPosmm = uieditfield(app.GeneralPanel, 'numeric');
             app.GlobalXPosmm.Limits = [-50 50];
             app.GlobalXPosmm.ValueDisplayFormat = '%.4f';
             app.GlobalXPosmm.HorizontalAlignment = 'center';
-            app.GlobalXPosmm.Position = [325 70 57 22];
+            app.GlobalXPosmm.Position = [333 71 57 22];
 
             % Create XLabel_4
             app.XLabel_4 = uilabel(app.GeneralPanel);
             app.XLabel_4.FontWeight = 'bold';
-            app.XLabel_4.Position = [309 70 25 22];
+            app.XLabel_4.Position = [317 71 25 22];
             app.XLabel_4.Text = 'X';
 
             % Create YLabel_4
             app.YLabel_4 = uilabel(app.GeneralPanel);
             app.YLabel_4.FontWeight = 'bold';
-            app.YLabel_4.Position = [309 43 25 22];
+            app.YLabel_4.Position = [317 44 25 22];
             app.YLabel_4.Text = 'Y';
 
             % Create ZLabel_4
             app.ZLabel_4 = uilabel(app.GeneralPanel);
             app.ZLabel_4.FontWeight = 'bold';
-            app.ZLabel_4.Position = [310 16 25 22];
+            app.ZLabel_4.Position = [318 17 25 22];
             app.ZLabel_4.Text = 'Z';
 
             % Create DatatipsPanel
@@ -5562,12 +5460,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.MicroDriveGlobalPositionPanel.Title = 'MicroDrive & Global Position';
             app.MicroDriveGlobalPositionPanel.Position = [181 410 629 294];
 
-            % Create MinpeakheightVLabel_2
-            app.MinpeakheightVLabel_2 = uilabel(app.MicroDriveGlobalPositionPanel);
-            app.MinpeakheightVLabel_2.HorizontalAlignment = 'right';
-            app.MinpeakheightVLabel_2.Position = [24 73 78 30];
-            app.MinpeakheightVLabel_2.Text = {'Move time '; 'multiplier'};
-
             % Create SafetylimitsmmLabel
             app.SafetylimitsmmLabel = uilabel(app.MicroDriveGlobalPositionPanel);
             app.SafetylimitsmmLabel.Position = [39 227 101 22];
@@ -5656,13 +5548,13 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.ZeroNanodriveX.Position = [356 176 15 21];
             app.ZeroNanodriveX.Value = true;
 
-            % Create ZeroNanodriveaxisbeforemovingglobalpositionLabel
-            app.ZeroNanodriveaxisbeforemovingglobalpositionLabel = uilabel(app.MicroDriveGlobalPositionPanel);
-            app.ZeroNanodriveaxisbeforemovingglobalpositionLabel.HorizontalAlignment = 'center';
-            app.ZeroNanodriveaxisbeforemovingglobalpositionLabel.WordWrap = 'on';
-            app.ZeroNanodriveaxisbeforemovingglobalpositionLabel.FontWeight = 'bold';
-            app.ZeroNanodriveaxisbeforemovingglobalpositionLabel.Position = [306 198 122 46];
-            app.ZeroNanodriveaxisbeforemovingglobalpositionLabel.Text = 'Zero Nanodrive axis before moving global position';
+            % Create ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel
+            app.ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel = uilabel(app.MicroDriveGlobalPositionPanel);
+            app.ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel.HorizontalAlignment = 'center';
+            app.ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel.WordWrap = 'on';
+            app.ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel.FontWeight = 'bold';
+            app.ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel.Position = [306 198 122 46];
+            app.ZeroNanodriveaxisbeforemovingMicroDriveaxisLabel.Text = 'Zero Nanodrive axis before moving MicroDrive axis';
 
             % Create MicroDrivePrecision
             app.MicroDrivePrecision = uieditfield(app.MicroDriveGlobalPositionPanel, 'numeric');
@@ -5801,13 +5693,6 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.MaxLabel.FontWeight = 'bold';
             app.MaxLabel.Position = [102 205 29 22];
             app.MaxLabel.Text = 'Max';
-
-            % Create MoveTimeMult
-            app.MoveTimeMult = uieditfield(app.MicroDriveGlobalPositionPanel, 'numeric');
-            app.MoveTimeMult.Limits = [0 Inf];
-            app.MoveTimeMult.Tooltip = {'Sets the wait time for the MicroDrive stage to move after sending a command. The shorter the dwell time, the longer this needs to be to prevent errors.'};
-            app.MoveTimeMult.Position = [112 77 29 22];
-            app.MoveTimeMult.Value = 1.2;
 
             % Create MinpeakheightVLabel_25
             app.MinpeakheightVLabel_25 = uilabel(app.MicroDriveGlobalPositionPanel);
@@ -6247,91 +6132,113 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             % Create StagesettlingtimeaftermovementButtonGroup
             app.StagesettlingtimeaftermovementButtonGroup = uibuttongroup(app.NanoDrivesettingsTab);
             app.StagesettlingtimeaftermovementButtonGroup.Title = 'Stage settling time after movement';
-            app.StagesettlingtimeaftermovementButtonGroup.Position = [35 339 420 191];
-
-            % Create FixedsettlingtimeButton
-            app.FixedsettlingtimeButton = uiradiobutton(app.StagesettlingtimeaftermovementButtonGroup);
-            app.FixedsettlingtimeButton.Text = 'Fixed settling time';
-            app.FixedsettlingtimeButton.Position = [11 145 119 22];
-
-            % Create PositionerrorthresholdButton
-            app.PositionerrorthresholdButton = uiradiobutton(app.StagesettlingtimeaftermovementButtonGroup);
-            app.PositionerrorthresholdButton.Text = 'Position error threshold';
-            app.PositionerrorthresholdButton.Position = [11 123 146 22];
-            app.PositionerrorthresholdButton.Value = true;
+            app.StagesettlingtimeaftermovementButtonGroup.Position = [35 301 476 229];
 
             % Create unitlabel_ms
             app.unitlabel_ms = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
             app.unitlabel_ms.WordWrap = 'on';
-            app.unitlabel_ms.Position = [209 144 43 22];
+            app.unitlabel_ms.Position = [209 182 43 22];
             app.unitlabel_ms.Text = 'ms';
 
             % Create NanoDispPosError
             app.NanoDispPosError = uicheckbox(app.StagesettlingtimeaftermovementButtonGroup);
             app.NanoDispPosError.Text = 'Log movement parameters in message error';
-            app.NanoDispPosError.Position = [13 87 306 38];
+            app.NanoDispPosError.Position = [14 85 306 38];
             app.NanoDispPosError.Value = true;
 
             % Create NanoMoveTimeout
             app.NanoMoveTimeout = uieditfield(app.StagesettlingtimeaftermovementButtonGroup, 'numeric');
             app.NanoMoveTimeout.Limits = [0 Inf];
-            app.NanoMoveTimeout.Position = [372 93 36 22];
+            app.NanoMoveTimeout.Position = [427 98 36 22];
             app.NanoMoveTimeout.Value = 500;
 
             % Create NanoMinSettleTime
             app.NanoMinSettleTime = uieditfield(app.StagesettlingtimeaftermovementButtonGroup, 'numeric');
             app.NanoMinSettleTime.Limits = [0 Inf];
-            app.NanoMinSettleTime.Position = [371 120 36 22];
-
-            % Create NanoPosErrThreshold
-            app.NanoPosErrThreshold = uieditfield(app.StagesettlingtimeaftermovementButtonGroup, 'numeric');
-            app.NanoPosErrThreshold.Position = [161 123 45 22];
-            app.NanoPosErrThreshold.Value = 20;
+            app.NanoMinSettleTime.Position = [426 126 36 22];
 
             % Create NanoFixedMoveTime
             app.NanoFixedMoveTime = uieditfield(app.StagesettlingtimeaftermovementButtonGroup, 'numeric');
-            app.NanoFixedMoveTime.Position = [161 145 45 22];
+            app.NanoFixedMoveTime.Position = [161 183 45 22];
             app.NanoFixedMoveTime.Value = 100;
-
-            % Create unitlabel_nm
-            app.unitlabel_nm = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
-            app.unitlabel_nm.WordWrap = 'on';
-            app.unitlabel_nm.Position = [209 122 43 22];
-            app.unitlabel_nm.Text = 'nm';
 
             % Create MinpeakheightVLabel_12
             app.MinpeakheightVLabel_12 = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
             app.MinpeakheightVLabel_12.HorizontalAlignment = 'right';
-            app.MinpeakheightVLabel_12.Position = [290 92 75 22];
+            app.MinpeakheightVLabel_12.Position = [345 97 75 22];
             app.MinpeakheightVLabel_12.Text = 'Timeout (ms)';
 
             % Create MinpeakheightVLabel_13
             app.MinpeakheightVLabel_13 = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
             app.MinpeakheightVLabel_13.HorizontalAlignment = 'right';
-            app.MinpeakheightVLabel_13.Position = [254 119 110 22];
+            app.MinpeakheightVLabel_13.Position = [309 125 110 22];
             app.MinpeakheightVLabel_13.Text = 'Min settle time (ms)';
 
             % Create FilepathLabel_3
             app.FilepathLabel_3 = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
             app.FilepathLabel_3.HorizontalAlignment = 'right';
-            app.FilepathLabel_3.Position = [16 21 52 22];
+            app.FilepathLabel_3.Position = [14 25 52 22];
             app.FilepathLabel_3.Text = 'File path';
 
             % Create NanoSaveFilePath
             app.NanoSaveFilePath = uitextarea(app.StagesettlingtimeaftermovementButtonGroup);
-            app.NanoSaveFilePath.Position = [86 11 326 36];
-            app.NanoSaveFilePath.Value = {'G:\Shared drives\PHYS - Walsworth Group\Experiment folders\Dark Matter\Confocal\Data\Nanostage monitoring\5-2-24 Nanostage movt params.csv'};
+            app.NanoSaveFilePath.Position = [84 15 326 36];
+            app.NanoSaveFilePath.Value = {'.\Data\Nanostage monitoring\5-2-24 Nanostage movt params.csv'};
 
             % Create NanoSaveParams
             app.NanoSaveParams = uicheckbox(app.StagesettlingtimeaftermovementButtonGroup);
             app.NanoSaveParams.Text = {'Save position error and settling time'; '(only for second option above)'};
-            app.NanoSaveParams.Position = [13 55 233 38];
+            app.NanoSaveParams.Position = [13 52 233 38];
+
+            % Create percentlabel
+            app.percentlabel = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
+            app.percentlabel.WordWrap = 'on';
+            app.percentlabel.Position = [262 156 43 22];
+            app.percentlabel.Text = '%';
+
+            % Create NanoPosErrPercThreshold
+            app.NanoPosErrPercThreshold = uieditfield(app.StagesettlingtimeaftermovementButtonGroup, 'numeric');
+            app.NanoPosErrPercThreshold.Position = [214 156 45 22];
+            app.NanoPosErrPercThreshold.Value = 10;
+
+            % Create NanoPosErrThreshold
+            app.NanoPosErrThreshold = uieditfield(app.StagesettlingtimeaftermovementButtonGroup, 'numeric');
+            app.NanoPosErrThreshold.Position = [214 131 45 22];
+            app.NanoPosErrThreshold.Value = 20;
+
+            % Create PoserrAbsButton
+            app.PoserrAbsButton = uiradiobutton(app.StagesettlingtimeaftermovementButtonGroup);
+            app.PoserrAbsButton.Text = 'Position error fixed threshold (nm)';
+            app.PoserrAbsButton.Position = [11 131 204 22];
+            app.PoserrAbsButton.Value = true;
+
+            % Create PoserrPercentButton
+            app.PoserrPercentButton = uiradiobutton(app.StagesettlingtimeaftermovementButtonGroup);
+            app.PoserrPercentButton.Text = 'Position error threshold (variable)';
+            app.PoserrPercentButton.Position = [11 156 200 22];
+
+            % Create FixedsettlingtimeButton
+            app.FixedsettlingtimeButton = uiradiobutton(app.StagesettlingtimeaftermovementButtonGroup);
+            app.FixedsettlingtimeButton.Text = 'Fixed settling time';
+            app.FixedsettlingtimeButton.Position = [11 183 119 22];
+
+            % Create NanoMinPosErrThreshold
+            app.NanoMinPosErrThreshold = uieditfield(app.StagesettlingtimeaftermovementButtonGroup, 'numeric');
+            app.NanoMinPosErrThreshold.Limits = [0 Inf];
+            app.NanoMinPosErrThreshold.Position = [424 156 36 22];
+            app.NanoMinPosErrThreshold.Value = 1;
+
+            % Create MinpeakheightVLabel_26
+            app.MinpeakheightVLabel_26 = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
+            app.MinpeakheightVLabel_26.HorizontalAlignment = 'right';
+            app.MinpeakheightVLabel_26.Position = [312 156 105 22];
+            app.MinpeakheightVLabel_26.Text = 'Min threshold (nm)';
 
             % Create InactiveLabelNormal
             app.InactiveLabelNormal = uilabel(app.StagesettlingtimeaftermovementButtonGroup);
             app.InactiveLabelNormal.FontSize = 48;
             app.InactiveLabelNormal.FontWeight = 'bold';
-            app.InactiveLabelNormal.Position = [89 66 231 63];
+            app.InactiveLabelNormal.Position = [126 77 231 63];
             app.InactiveLabelNormal.Text = 'INACTIVE';
 
             % Create NanoDriveRealPos
@@ -6381,59 +6288,30 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.MinpeakheightVLabel_11 = uilabel(app.NanoDrivesettingsTab);
             app.MinpeakheightVLabel_11.HorizontalAlignment = 'right';
             app.MinpeakheightVLabel_11.WordWrap = 'on';
-            app.MinpeakheightVLabel_11.Position = [26 712 89 44];
-            app.MinpeakheightVLabel_11.Text = 'NanoDrive minimum precision (um)';
+            app.MinpeakheightVLabel_11.Position = [26 733 89 30];
+            app.MinpeakheightVLabel_11.Text = 'Minimum precision (um)';
 
             % Create NanoDrivePrecision
             app.NanoDrivePrecision = uieditfield(app.NanoDrivesettingsTab, 'numeric');
             app.NanoDrivePrecision.Limits = [0 Inf];
-            app.NanoDrivePrecision.Position = [125 725 46 22];
+            app.NanoDrivePrecision.Position = [125 737 46 22];
             app.NanoDrivePrecision.Value = 0.001;
 
             % Create NanoPositionError
             app.NanoPositionError = uipanel(app.NanoDrivesettingsTab);
             app.NanoPositionError.Title = 'Commanded vs. actual settled position error';
-            app.NanoPositionError.Position = [69 85 539 229];
-
-            % Create MeasPosErrY
-            app.MeasPosErrY = uicheckbox(app.NanoPositionError);
-            app.MeasPosErrY.Text = 'Measure Y';
-            app.MeasPosErrY.Position = [411 69 97 38];
-
-            % Create MeasPosErrXZ
-            app.MeasPosErrXZ = uicheckbox(app.NanoPositionError);
-            app.MeasPosErrXZ.Text = 'Measure X, Z';
-            app.MeasPosErrXZ.Position = [411 97 97 38];
-            app.MeasPosErrXZ.Value = true;
+            app.NanoPositionError.Position = [34 83 333 193];
 
             % Create PosErrScanIncr
             app.PosErrScanIncr = uieditfield(app.NanoPositionError, 'numeric');
             app.PosErrScanIncr.HorizontalAlignment = 'center';
-            app.PosErrScanIncr.Position = [437 146 50 22];
+            app.PosErrScanIncr.Position = [62 12 50 22];
             app.PosErrScanIncr.Value = 25;
-
-            % Create LoadNanoDriveCorr
-            app.LoadNanoDriveCorr = uibutton(app.NanoPositionError, 'push');
-            app.LoadNanoDriveCorr.ButtonPushedFcn = createCallbackFcn(app, @LoadNanoDriveCorrButtonPushed, true);
-            app.LoadNanoDriveCorr.BackgroundColor = [0 1 1];
-            app.LoadNanoDriveCorr.FontSize = 13;
-            app.LoadNanoDriveCorr.FontWeight = 'bold';
-            app.LoadNanoDriveCorr.Position = [291 14 100 40];
-            app.LoadNanoDriveCorr.Text = {'Load coeffs. '; 'from csv file'};
-
-            % Create SavePosErrCoeffs
-            app.SavePosErrCoeffs = uibutton(app.NanoPositionError, 'push');
-            app.SavePosErrCoeffs.ButtonPushedFcn = createCallbackFcn(app, @SavePosErrCoeffsButtonPushed, true);
-            app.SavePosErrCoeffs.BackgroundColor = [0.7216 0.2706 1];
-            app.SavePosErrCoeffs.FontSize = 13;
-            app.SavePosErrCoeffs.FontWeight = 'bold';
-            app.SavePosErrCoeffs.Position = [291 66 100 24];
-            app.SavePosErrCoeffs.Text = 'Save coeffs.';
 
             % Create ElapsedtimesLabel_2
             app.ElapsedtimesLabel_2 = uilabel(app.NanoPositionError);
             app.ElapsedtimesLabel_2.HorizontalAlignment = 'right';
-            app.ElapsedtimesLabel_2.Position = [401 171 122 22];
+            app.ElapsedtimesLabel_2.Position = [26 37 122 22];
             app.ElapsedtimesLabel_2.Text = 'Scan increments (um)';
 
             % Create PosErrCoeffUpdate
@@ -6442,8 +6320,8 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.PosErrCoeffUpdate.BackgroundColor = [0.302 0.7451 0.9333];
             app.PosErrCoeffUpdate.FontSize = 13;
             app.PosErrCoeffUpdate.FontWeight = 'bold';
-            app.PosErrCoeffUpdate.Position = [291 101 100 24];
-            app.PosErrCoeffUpdate.Text = 'Update coeffs.';
+            app.PosErrCoeffUpdate.Position = [219 42 100 48];
+            app.PosErrCoeffUpdate.Text = {'Save fitted '; 'function(s)'};
 
             % Create MeasPosErrStop
             app.MeasPosErrStop = uibutton(app.NanoPositionError, 'push');
@@ -6451,7 +6329,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.MeasPosErrStop.BackgroundColor = [0.851 0.3255 0.098];
             app.MeasPosErrStop.FontSize = 13;
             app.MeasPosErrStop.FontWeight = 'bold';
-            app.MeasPosErrStop.Position = [291 135 100 24];
+            app.MeasPosErrStop.Position = [219 101 100 24];
             app.MeasPosErrStop.Text = 'Stop';
 
             % Create MeasPosErrStart
@@ -6461,95 +6339,32 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.MeasPosErrStart.FontSize = 13;
             app.MeasPosErrStart.FontWeight = 'bold';
             app.MeasPosErrStart.Tooltip = {'During the measurement, each axis will be scanned in steps from 0 to 200 um. Each step will be performed with a fixed settling time of 500 ms. (Previous settings will be restored by default at the end of the measurement.) Monitor progress of the measurement on the main tab.'};
-            app.MeasPosErrStart.Position = [291 169 100 24];
+            app.MeasPosErrStart.Position = [219 135 100 24];
             app.MeasPosErrStart.Text = 'Measure';
-
-            % Create NanoDriveCorrLabel
-            app.NanoDriveCorrLabel = uilabel(app.NanoPositionError);
-            app.NanoDriveCorrLabel.HorizontalAlignment = 'center';
-            app.NanoDriveCorrLabel.WordWrap = 'on';
-            app.NanoDriveCorrLabel.Position = [80 114 201 59];
-            app.NanoDriveCorrLabel.Text = 'Nanodrive absolute position error correction efficients (original axes)';
-
-            % Create NanoDriveCorrZZ
-            app.NanoDriveCorrZZ = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrZZ.Position = [234 44 45 22];
-            app.NanoDriveCorrZZ.Value = -0.16;
-
-            % Create NanoDriveCorrYZ
-            app.NanoDriveCorrYZ = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrYZ.Position = [234 73 45 22];
-
-            % Create NanoDriveCorrXZ
-            app.NanoDriveCorrXZ = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrXZ.Position = [234 101 45 22];
-            app.NanoDriveCorrXZ.Value = 0.28;
-
-            % Create NanoDriveCorrZY
-            app.NanoDriveCorrZY = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrZY.Position = [182 44 45 22];
-
-            % Create NanoDriveCorrYY
-            app.NanoDriveCorrYY = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrYY.Position = [182 73 45 22];
-            app.NanoDriveCorrYY.Value = 0.38;
-
-            % Create NanoDriveCorrXY
-            app.NanoDriveCorrXY = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrXY.Position = [182 101 45 22];
-
-            % Create NanoDriveCorrZX
-            app.NanoDriveCorrZX = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrZX.Position = [130 44 45 22];
-            app.NanoDriveCorrZX.Value = 0.15;
-
-            % Create NanoDriveCorrYX
-            app.NanoDriveCorrYX = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrYX.Position = [130 73 45 22];
-
-            % Create NanoDriveCorrXX
-            app.NanoDriveCorrXX = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrXX.Position = [130 101 45 22];
-            app.NanoDriveCorrXX.Value = -0.29;
-
-            % Create NanoDriveCorrZint
-            app.NanoDriveCorrZint = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrZint.Position = [81 44 45 22];
-            app.NanoDriveCorrZint.Value = 4.2;
-
-            % Create NanoDriveCorrYint
-            app.NanoDriveCorrYint = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrYint.Position = [81 73 45 22];
-            app.NanoDriveCorrYint.Value = -12.5;
-
-            % Create NanoDriveCorrXint
-            app.NanoDriveCorrXint = uieditfield(app.NanoPositionError, 'numeric');
-            app.NanoDriveCorrXint.Position = [81 101 45 22];
-            app.NanoDriveCorrXint.Value = 12.93;
 
             % Create AbsPosCorrSwitch
             app.AbsPosCorrSwitch = uicheckbox(app.NanoPositionError);
             app.AbsPosCorrSwitch.Text = 'Use absolute position correction';
-            app.AbsPosCorrSwitch.Position = [15 170 199 38];
+            app.AbsPosCorrSwitch.Position = [15 134 199 38];
             app.AbsPosCorrSwitch.Value = true;
 
-            % Create XLabel_Ori_2
-            app.XLabel_Ori_2 = uilabel(app.NanoPositionError);
-            app.XLabel_Ori_2.FontWeight = 'bold';
-            app.XLabel_Ori_2.Position = [13 102 62 22];
-            app.XLabel_Ori_2.Text = 'Original X';
+            % Create AxistoscanDropDownLabel
+            app.AxistoscanDropDownLabel = uilabel(app.NanoPositionError);
+            app.AxistoscanDropDownLabel.HorizontalAlignment = 'right';
+            app.AxistoscanDropDownLabel.Position = [16 110 70 22];
+            app.AxistoscanDropDownLabel.Text = 'Axis to scan';
 
-            % Create YLabel_Ori_2
-            app.YLabel_Ori_2 = uilabel(app.NanoPositionError);
-            app.YLabel_Ori_2.FontWeight = 'bold';
-            app.YLabel_Ori_2.Position = [13 73 61 22];
-            app.YLabel_Ori_2.Text = 'Original Y';
+            % Create AxistoscanDropDown
+            app.AxistoscanDropDown = uidropdown(app.NanoPositionError);
+            app.AxistoscanDropDown.Items = {'X', 'Y', 'Z', 'All'};
+            app.AxistoscanDropDown.Position = [101 110 48 22];
+            app.AxistoscanDropDown.Value = 'X';
 
-            % Create ZLabel_Ori_2
-            app.ZLabel_Ori_2 = uilabel(app.NanoPositionError);
-            app.ZLabel_Ori_2.FontWeight = 'bold';
-            app.ZLabel_Ori_2.Position = [13 44 61 22];
-            app.ZLabel_Ori_2.Text = 'Original Z';
+            % Create percentlabel_2
+            app.percentlabel_2 = uilabel(app.NanoPositionError);
+            app.percentlabel_2.WordWrap = 'on';
+            app.percentlabel_2.Position = [20 62 178 44];
+            app.percentlabel_2.Text = 'Note: this assumes manufacturer (not lab) axes names';
 
             % Create NanoSkipifSame
             app.NanoSkipifSame = uicheckbox(app.NanoDrivesettingsTab);
@@ -6597,26 +6412,11 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.NanoDrivePosMonitorPeriod.Position = [373 720 27 22];
             app.NanoDrivePosMonitorPeriod.Value = 5;
 
-            % Create DbatchscanningmodeSwitchLabel
-            app.DbatchscanningmodeSwitchLabel = uilabel(app.NanoDrivesettingsTab);
-            app.DbatchscanningmodeSwitchLabel.HorizontalAlignment = 'center';
-            app.DbatchscanningmodeSwitchLabel.FontSize = 18;
-            app.DbatchscanningmodeSwitchLabel.FontWeight = 'bold';
-            app.DbatchscanningmodeSwitchLabel.Position = [401 624 137 44];
-            app.DbatchscanningmodeSwitchLabel.Text = {'2D batch '; 'scanning mode'};
-
-            % Create BatchModeSwitch
-            app.BatchModeSwitch = uiswitch(app.NanoDrivesettingsTab, 'slider');
-            app.BatchModeSwitch.ValueChangedFcn = createCallbackFcn(app, @BatchModeSwitchValueChanged, true);
-            app.BatchModeSwitch.FontSize = 18;
-            app.BatchModeSwitch.FontWeight = 'bold';
-            app.BatchModeSwitch.Position = [444 592 45 20];
-
             % Create BatchModeSettingsPanel
             app.BatchModeSettingsPanel = uipanel(app.NanoDrivesettingsTab);
             app.BatchModeSettingsPanel.Title = '2D batch scanning mode settings';
             app.BatchModeSettingsPanel.BackgroundColor = [0.9412 0.9412 0.9412];
-            app.BatchModeSettingsPanel.Position = [36 557 331 137];
+            app.BatchModeSettingsPanel.Position = [36 549 331 137];
 
             % Create MinpeakheightVLabel_19
             app.MinpeakheightVLabel_19 = uilabel(app.BatchModeSettingsPanel);
@@ -6690,39 +6490,55 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
             app.InactiveLabelBatch.Position = [51 31 231 63];
             app.InactiveLabelBatch.Text = 'INACTIVE';
 
-            % Create HelpTab
-            app.HelpTab = uitab(app.TabGroup);
-            app.HelpTab.Title = 'Help';
+            % Create DbatchscanningmodeSwitchLabel
+            app.DbatchscanningmodeSwitchLabel = uilabel(app.NanoDrivesettingsTab);
+            app.DbatchscanningmodeSwitchLabel.HorizontalAlignment = 'center';
+            app.DbatchscanningmodeSwitchLabel.FontSize = 18;
+            app.DbatchscanningmodeSwitchLabel.FontWeight = 'bold';
+            app.DbatchscanningmodeSwitchLabel.Position = [401 624 137 44];
+            app.DbatchscanningmodeSwitchLabel.Text = {'2D batch '; 'scanning mode'};
 
-            % Create MicroDrivesettingshelpLabel
-            app.MicroDrivesettingshelpLabel = uilabel(app.HelpTab);
-            app.MicroDrivesettingshelpLabel.FontWeight = 'bold';
-            app.MicroDrivesettingshelpLabel.Position = [24 881 144 22];
-            app.MicroDrivesettingshelpLabel.Text = 'MicroDrive settings help';
+            % Create BatchModeSwitch
+            app.BatchModeSwitch = uiswitch(app.NanoDrivesettingsTab, 'slider');
+            app.BatchModeSwitch.ValueChangedFcn = createCallbackFcn(app, @BatchModeSwitchValueChanged, true);
+            app.BatchModeSwitch.FontSize = 18;
+            app.BatchModeSwitch.FontWeight = 'bold';
+            app.BatchModeSwitch.Position = [444 592 45 20];
 
-            % Create explainglobalpos
-            app.explainglobalpos = uilabel(app.HelpTab);
-            app.explainglobalpos.WordWrap = 'on';
-            app.explainglobalpos.Position = [26 707 326 162];
-            app.explainglobalpos.Text = {'When one the Global Position coordinates is changed directly, the MicroDrive moves by the difference from the old value in response. When one of the NanoDrive coordinates are changed, the Global Position also updates accordingly. '; ''; 'Note that the MicroDrive does not have an encoder so it does not have an "absolute position" other than that recorded in the software. It also has a very large range (25 mm) compared to the NanoDrive (200 um). Thus, it makes sense to not have to track the absolute position of the MicroDrive independently of the Global Position.'};
+            % Create MinpeakheightVLabel_27
+            app.MinpeakheightVLabel_27 = uilabel(app.NanoDrivesettingsTab);
+            app.MinpeakheightVLabel_27.HorizontalAlignment = 'right';
+            app.MinpeakheightVLabel_27.WordWrap = 'on';
+            app.MinpeakheightVLabel_27.Position = [24 705 89 22];
+            app.MinpeakheightVLabel_27.Text = 'Max range (um)';
+
+            % Create NanoDriveRange
+            app.NanoDriveRange = uieditfield(app.NanoDrivesettingsTab, 'numeric');
+            app.NanoDriveRange.Limits = [0 Inf];
+            app.NanoDriveRange.Position = [123 705 46 22];
+            app.NanoDriveRange.Value = 100;
+
+            % Create ReadMeTab
+            app.ReadMeTab = uitab(app.TabGroup);
+            app.ReadMeTab.Title = 'ReadMe';
 
             % Create MicroDrivePrecisionLabel_2
-            app.MicroDrivePrecisionLabel_2 = uilabel(app.HelpTab);
+            app.MicroDrivePrecisionLabel_2 = uilabel(app.ReadMeTab);
             app.MicroDrivePrecisionLabel_2.WordWrap = 'on';
-            app.MicroDrivePrecisionLabel_2.Position = [26 524 385 74];
+            app.MicroDrivePrecisionLabel_2.Position = [17 826 385 74];
             app.MicroDrivePrecisionLabel_2.Text = 'For MFF101 functionality to work, Thorlabs Kinesis drivers must be present in folder C:\Program Files\Thorlabs\Kinesis. Use the Thorlabs-provided Kinesis program to obtain serial number and set the transit time (typically 500 ms). Stage movement timeout must be longer than transit time.';
 
-            % Create MFF101helpLabel
-            app.MFF101helpLabel = uilabel(app.HelpTab);
-            app.MFF101helpLabel.FontWeight = 'bold';
-            app.MFF101helpLabel.Position = [26 597 78 22];
-            app.MFF101helpLabel.Text = 'MFF101 help';
+            % Create MFF101ReadMeLabel
+            app.MFF101ReadMeLabel = uilabel(app.ReadMeTab);
+            app.MFF101ReadMeLabel.FontWeight = 'bold';
+            app.MFF101ReadMeLabel.Position = [17 899 99 22];
+            app.MFF101ReadMeLabel.Text = 'MFF101 ReadMe';
 
-            % Create Superresolutionconfocalcontrolprogramv51Label
-            app.Superresolutionconfocalcontrolprogramv51Label = uilabel(app.UIFigure);
-            app.Superresolutionconfocalcontrolprogramv51Label.FontSize = 24;
-            app.Superresolutionconfocalcontrolprogramv51Label.Position = [20 981 519 32];
-            app.Superresolutionconfocalcontrolprogramv51Label.Text = 'Super-resolution confocal control program v.5.1';
+            % Create Superresolutionconfocalcontrolprogramv52Label
+            app.Superresolutionconfocalcontrolprogramv52Label = uilabel(app.UIFigure);
+            app.Superresolutionconfocalcontrolprogramv52Label.FontSize = 24;
+            app.Superresolutionconfocalcontrolprogramv52Label.Position = [20 981 519 32];
+            app.Superresolutionconfocalcontrolprogramv52Label.Text = 'Super-resolution confocal control program v.5.2';
 
             % Show the figure after all components are created
             app.UIFigure.Visible = 'on';
@@ -6733,7 +6549,7 @@ classdef SRconfocal_v5_1_exported < matlab.apps.AppBase
     methods (Access = public)
 
         % Construct app
-        function app = SRconfocal_v5_1_exported
+        function app = SRconfocal_v5_2_exported
 
             % Create UIFigure and components
             createComponents(app)
